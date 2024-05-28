@@ -14,7 +14,7 @@ def find_subdomains(domain, enable_bruteforce, dns_recon, output_file):
     subdomains = sublist3r.main(domain, 40, output=None, ports=None, silent=True, verbose=False, enable_bruteforce=enable_bruteforce, engines=None)
     
     if dns_recon:
-‎        # استفاده از dnsrecon برای پیدا کردن زیردامنه‌های بیشتر
+
         dnsrecon_output = subprocess.check_output(["dnsrecon", "-d", domain, "-t", "brt"]).decode()
         for line in dnsrecon_output.splitlines():
             if "A" in line:
@@ -22,12 +22,10 @@ def find_subdomains(domain, enable_bruteforce, dns_recon, output_file):
                 if subdomain not in subdomains:
                     subdomains.append(subdomain)
     
-‎    # ذخیره زیردامنه‌ها در یک فایل موقت
     with open("/tmp/subdomains.txt", "w") as f:
         for subdomain in subdomains:
             f.write(subdomain + "\n")
     
-‎    # استفاده از massdns برای اعتبارسنجی زیردامنه‌ها
     massdns_output = subprocess.check_output(["massdns", "-r", "massdns/lists/resolvers.txt", "-t", "A", "-o", "S", "/tmp/subdomains.txt"]).decode()
     valid_subdomains = []
     for line in massdns_output.splitlines():
@@ -36,7 +34,6 @@ def find_subdomains(domain, enable_bruteforce, dns_recon, output_file):
             if valid_subdomain not in valid_subdomains:
                 valid_subdomains.append(valid_subdomain)
     
-‎    # اگر کاربر فایل خروجی تعیین کرده باشد
     if output_file:
         with open(output_file, "w") as f:
             for subdomain in valid_subdomains:
