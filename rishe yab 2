@@ -1,6 +1,5 @@
 import sublist3r
 import subprocess
-import os
 import argparse
 import pyfiglet
 
@@ -10,10 +9,9 @@ def display_banner():
 
 def find_subdomains(domain, enable_bruteforce, dns_recon, output_file):
 
-    subdomains = sublist3r.main(domain, 40, output=None, ports=None, silent=True, verbose=False, enable_bruteforce=enable_bruteforce, engines=None)
+    subdomains = sublist3r.main(domain, threads=40, savefile=None, ports=None, silent=True, verbose=False, enable_bruteforce=enable_bruteforce, engines=None)
     
     if dns_recon:
-
         dnsrecon_output = subprocess.check_output(["dnsrecon", "-d", domain, "-t", "brt"]).decode()
         for line in dnsrecon_output.splitlines():
             if "A" in line:
@@ -41,13 +39,17 @@ def find_subdomains(domain, enable_bruteforce, dns_recon, output_file):
         for subdomain in valid_subdomains:
             print(subdomain)
 
-display_banner()
+def main():
+    display_banner()
     
-parser = argparse.ArgumentParser(description="Advanced Subdomain Finder")
-parser.add_argument("domain", help="The domain to search for subdomains")
-parser.add_argument("-b", "--bruteforce", action="store_true", help="Enable brute-force search with Sublist3r")
-parser.add_argument("-d", "--dnsrecon", action="store_true", help="Enable DNSRecon search")
-parser.add_argument("-o", "--output", help="Output file to save valid subdomains")
+    parser = argparse.ArgumentParser(description="Advanced Subdomain Finder")
+    parser.add_argument("domain", help="The domain to search for subdomains")
+    parser.add_argument("-b", "--bruteforce", action="store_true", help="Enable brute-force search with Sublist3r")
+    parser.add_argument("-d", "--dnsrecon", action="store_true", help="Enable DNSRecon search")
+    parser.add_argument("-o", "--output", help="Output file to save valid subdomains")
 
-args = parser.parse_args()
-find_subdomains(args.domain, args.bruteforce, args.dnsrecon, args.output)
+    args = parser.parse_args()
+    find_subdomains(args.domain, args.bruteforce, args.dnsrecon, args.output)
+
+if __name__ == "__main__":
+    main()
