@@ -37,33 +37,34 @@ Make sure `dnsrecon` and `massdns` are installed and accessible from your comman
 To use this subdomain finder tool, run the `subdomain_finder.py` script with the appropriate options:
 
 ```bash
-python subdomain_finder.py [OPTIONS] domain
+python risheyab.py [OPTIONS] domain
 ```
 
 #### Options:
-- `-b, --bruteforce`: Enable brute-force search with Sublist3r.
-- `-d, --dnsrecon`: Enable DNSRecon search.
-- `-o, --output FILE`: Output file to save valid subdomains.
+- `-d   --domain`       The domain to search for subdomains
+- `-b,  --bruteforce`:  Enable brute-force search with Sublist3r.
+- `-dr, --dnsrecon`:    Enable DNSRecon search.
+- `-o,  --output FILE`: Output file to save valid subdomains.
 
 #### Examples:
 - Simple subdomain search:
   ```bash
-  python subdomain_finder.py example.com
+  python risheyab.py example.com
   ```
 
 - Enable brute-force search:
   ```bash
-  python subdomain_finder.py -b example.com
+  python risheyab.py -b example.com
   ```
 
 - Enable DNSRecon search:
   ```bash
-  python subdomain_finder.py -d example.com
+  python risheyab.py -d example.com
   ```
 
 - Save results to a file:
   ```bash
-  python subdomain_finder.py -o subdomains.txt example.com
+  python risheyab.py -o subdomains.txt example.com
   ```
 ## Help
 For detailed help, refer to the [help](https://github.com/lordsmh/risheyab-/blob/main/help.txt) file included with the project.
