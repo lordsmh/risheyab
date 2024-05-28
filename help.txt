@@ -1,0 +1,32 @@
+Advanced Subdomain Finder - Help
+
+Usage:
+    python subdomain_finder.py [OPTIONS] domain
+
+Options:
+    -b, --bruteforce       Enable brute-force search with Sublist3r
+    -d, --dnsrecon         Enable DNSRecon search
+    -o, --output FILE      Output file to save valid subdomains
+
+Examples:
+    # Simple subdomain search
+    python subdomain_finder.py example.com
+
+    # Enable brute-force search
+    python subdomain_finder.py -b example.com
+
+    # Enable DNSRecon search
+    python subdomain_finder.py -d example.com
+
+    # Save results to a file
+    python subdomain_finder.py -o subdomains.txt example.com
+
+Description:
+    This program searches for subdomains of a given domain using multiple methods
+    including Sublist3r, DNSRecon, and MassDNS for validation. You can enable
+    additional search methods using the options provided.
+
+Dependencies:
+    - Sublist3r
+    - DNSRecon
+    - MassDNS
