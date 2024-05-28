@@ -64,8 +64,8 @@ python subdomain_finder.py [OPTIONS] domain
   python subdomain_finder.py -o subdomains.txt example.com
   ```
 
-### Help
-For detailed help, refer to the `help.txt` file included with the project.
+## Author
+Tool developed by `lord_smh`.
 
 ### License
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
