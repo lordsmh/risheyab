@@ -1,3 +1,4 @@
+*.python linguist-detectable=true
 import sublist3r
 import subprocess
 import os
