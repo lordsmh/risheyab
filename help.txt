@@ -1,7 +1,7 @@
 Advanced Subdomain Finder - Help
 
 Usage:
-    python subdomain_finder.py [OPTIONS] domain
+    python risheyab.py [OPTIONS] domain
 
 Options:
     -b, --bruteforce       Enable brute-force search with Sublist3r
