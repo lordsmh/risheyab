@@ -1,7 +1,5 @@
-
 import sublist3r
 import subprocess
-import os
 import argparse
 import pyfiglet
 
@@ -10,29 +8,37 @@ def display_banner():
     print(banner)
 
 def find_subdomains(domain, enable_bruteforce, dns_recon, output_file):
+    subdomains = sublist3r.main(domain, threads=40, savefile=None, ports=None, silent=True, verbose=False, enable_bruteforce=enable_bruteforce, engines=None)
 
-    subdomains = sublist3r.main(domain, 40, output=None, ports=None, silent=True, verbose=False, enable_bruteforce=enable_bruteforce, engines=None)
-    
     if dns_recon:
+        try:
+            dnsrecon_output = subprocess.check_output(["dnsrecon", "-d", domain, "-t", "brt"]).decode()
+            for line in dnsrecon_output.splitlines():
+                if "A" in line:
+                    subdomain = line.split(" ")[-1]
+                    if subdomain not in subdomains:
+                        subdomains.append(subdomain)
+        except subprocess.CalledProcessError as e:
+            print(f"Error running dnsrecon: {e}")
 
-        dnsrecon_output = subprocess.check_output(["dnsrecon", "-d", domain, "-t", "brt"]).decode()
-        for line in dnsrecon_output.splitlines():
-            if "A" in line:
-                subdomain = line.split(" ")[-1]
-                if subdomain not in subdomains:
-                    subdomains.append(subdomain)
-    
+    with open("/home/smhmosavi/Desktop/resolvers.txt", "r") as f:
+        resolvers = f.read().splitlines()
+
     with open("/tmp/subdomains.txt", "w") as f:
         for subdomain in subdomains:
             f.write(subdomain + "\n")
     
-    massdns_output = subprocess.check_output(["massdns", "-r", "massdns/lists/resolvers.txt", "-t", "A", "-o", "S", "/tmp/subdomains.txt"]).decode()
-    valid_subdomains = []
-    for line in massdns_output.splitlines():
-        if " A " in line:
-            valid_subdomain = line.split(". ")[0]
-            if valid_subdomain not in valid_subdomains:
-                valid_subdomains.append(valid_subdomain)
+    try:
+        massdns_output = subprocess.check_output(["massdns", "-r", "/home/smhmosavi/Desktop/resolvers.txt", "-t", "A", "-o", "S", "/tmp/subdomains.txt"]).decode()
+        valid_subdomains = []
+        for line in massdns_output.splitlines():
+            if " A " in line:
+                valid_subdomain = line.split(". ")[0]
+                if valid_subdomain not in valid_subdomains:
+                    valid_subdomains.append(valid_subdomain)
+    except subprocess.CalledProcessError as e:
+        print(f"Error running massdns: {e}")
+        return
     
     if output_file:
         with open(output_file, "w") as f:
@@ -56,4 +62,3 @@ def main():
 
 if __name__ == "__main__":
     main()
-
