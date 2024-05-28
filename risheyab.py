@@ -10,7 +10,7 @@ def display_banner():
     print(banner)
 
 def find_subdomains(domain, enable_bruteforce, dns_recon, output_file):
-‎    # استفاده از sublist3r برای پیدا کردن زیردامنه‌ها
+
     subdomains = sublist3r.main(domain, 40, output=None, ports=None, silent=True, verbose=False, enable_bruteforce=enable_bruteforce, engines=None)
     
     if dns_recon:
