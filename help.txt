@@ -1,12 +1,15 @@
 Advanced Subdomain Finder - Help
 
+Author : Lord_smh
+
 Usage:
     python risheyab.py [OPTIONS] domain
 
 Options:
-    -b, --bruteforce       Enable brute-force search with Sublist3r
-    -d, --dnsrecon         Enable DNSRecon search
-    -o, --output FILE      Output file to save valid subdomains
+    -d,  --domain           The domain to search for subdomains
+    -b,  --bruteforce       Enable brute-force search with Sublist3r
+    -dr, --dnsrecon         Enable DNSRecon search
+    -o,  --output FILE      Output file to save valid subdomains
 
 Examples:
     # Simple subdomain search
