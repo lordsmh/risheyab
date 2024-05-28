@@ -63,6 +63,8 @@ python subdomain_finder.py [OPTIONS] domain
   ```bash
   python subdomain_finder.py -o subdomains.txt example.com
   ```
+## Help
+For detailed help, refer to the [help.txt](https://github.com/lordsmh/risheyab-/blob/main/help.txt) file included with the project.
 
 ## Author
 Tool developed by `lord_smh`.
