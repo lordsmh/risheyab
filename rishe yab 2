@@ -26,7 +26,7 @@ def find_subdomains(domain, enable_bruteforce, dns_recon, output_file):
         for subdomain in subdomains:
             f.write(subdomain + "\n")
     
-    massdns_output = subprocess.check_output(["massdns", "-r", "/home/your_username/Desktop/resolvers.txt", "-t", "A", "-o", "S", "/tmp/subdomains.txt"]).decode()
+    massdns_output = subprocess.check_output(["massdns", "-r", "/home/smhmosavi/Desktop/resolvers.txt", "-t", "A", "-o", "S", "/tmp/subdomains.txt"]).decode()
     valid_subdomains = []
     for line in massdns_output.splitlines():
         if " A " in line:
