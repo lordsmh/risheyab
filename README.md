@@ -1,3 +1,6 @@
+برای اضافه کردن یک بخش لایسنس به فایل `README.md`، می‌توانید از متن زیر استفاده کنید. این بخش، تحت مجوز MIT تنظیم شده است که یکی از رایج‌ترین و ساده‌ترین مجوزها برای پروژه‌های متن‌باز است.
+
+### محتوای به‌روز شده `README.md`:
 
 ```markdown
 # risheyab
@@ -33,10 +36,10 @@ pip install sublist3r pyfiglet
 Make sure `dnsrecon` and `massdns` are installed and accessible from your command line.
 
 ### Usage
-To use this subdomain finder tool, run the `risheyab.py` script with the appropriate options:
+To use this subdomain finder tool, run the `subdomain_finder.py` script with the appropriate options:
 
 ```bash
-python risheyab.py [OPTIONS] domain
+python subdomain_finder.py [OPTIONS] domain
 ```
 
 #### Options:
@@ -47,26 +50,30 @@ python risheyab.py [OPTIONS] domain
 #### Examples:
 - Simple subdomain search:
   ```bash
-  python risheyab.py example.com
+  python subdomain_finder.py example.com
   ```
 
 - Enable brute-force search:
   ```bash
-  python risheyab.py -b example.com
+  python subdomain_finder.py -b example.com
   ```
 
 - Enable DNSRecon search:
   ```bash
-  python risheyab.py -d example.com
+  python subdomain_finder.py -d example.com
   ```
 
 - Save results to a file:
   ```bash
-  python risheyab.py -o subdomains.txt example.com
+  python subdomain_finder.py -o subdomains.txt example.com
   ```
 
 ### Help
 For detailed help, refer to the `help.txt` file included with the project.
 
+### License
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
 Enjoy using risheyab!
 ```
+
