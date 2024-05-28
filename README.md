@@ -75,5 +75,4 @@ For detailed help, refer to the `help.txt` file included with the project.
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
 Enjoy using risheyab!
-```
 
