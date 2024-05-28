@@ -25,6 +25,8 @@ Before running this tool, ensure you have the following dependencies installed:
 - `dnsrecon` tool
 - `massdns` tool
 
+- you need edit part of code about <resolvers.txt location> replace your username on the code !!
+
 You can install the required Python libraries using:
 ```bash
 pip install sublist3r pyfiglet
