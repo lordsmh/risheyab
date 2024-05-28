@@ -25,7 +25,7 @@ Before running this tool, ensure you have the following dependencies installed:
 - `dnsrecon` tool
 - `massdns` tool
 
-- you need edit part of code about <resolvers.txt location> replace your username on the code !!
+- you need edit part of code about <resolvers.txt location> replace your username on the code !! line [38](https://github.com/lordsmh/risheyab-/blob/370e6ffc78fe0414c6a96309b294b46033efcf3b/risheyab.py#L38C1-L38C19), [47](https://github.com/lordsmh/risheyab-/blob/370e6ffc78fe0414c6a96309b294b46033efcf3b/risheyab.py#L47) 
 
 You can install the required Python libraries using:
 ```bash
