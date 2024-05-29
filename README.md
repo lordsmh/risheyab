@@ -48,7 +48,7 @@ python risheyab.py [OPTIONS] domain
 #### Examples:
 - Simple subdomain search:
   ```bash
-  python risheyab.py example.com
+  python risheyab.py -d example.com
   ```
 
 - Enable brute-force search:
@@ -58,7 +58,7 @@ python risheyab.py [OPTIONS] domain
 
 - Enable DNSRecon search:
   ```bash
-  python risheyab.py -d example.com
+  python risheyab.py -dr example.com
   ```
 
 - Save results to a file:
