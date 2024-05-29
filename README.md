@@ -33,7 +33,7 @@ pip install sublist3r pyfiglet
 Make sure `dnsrecon` and `massdns` are installed and accessible from your command line.
 
 ### Usage
-To use this subdomain finder tool, run the `subdomain_finder.py` script with the appropriate options:
+To use this subdomain finder tool, run the `risheyab.py` script with the appropriate options:
 
 ```bash
 python risheyab.py [OPTIONS] domain
