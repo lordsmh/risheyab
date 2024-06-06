@@ -1,6 +1,6 @@
 `Risheyab`
 
-## Created by Lord_smh
+## Created by Lord_SMH
 
 This project is a comprehensive subdomain finder tool designed to discover subdomains of a given domain using multiple methods. The tool leverages several powerful libraries and techniques to ensure a thorough search and validation of subdomains.
 
